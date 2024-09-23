@@ -1,0 +1,26 @@
+{
+  "name": "mapmost_bz_factory",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@loaders.gl/compression": "^4.2.3",
+    "@loaders.gl/core": "^4.2.3",
+    "@loaders.gl/crypto": "^4.2.3",
+    "@loaders.gl/schema": "^4.2.3",
+    "@loaders.gl/zip": "^4.2.3",
+    "@mapmost/mapmost-webgl": "^9.2.0",
+    "url": "^0.11.4",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "sass": "^1.77.1",
+    "vite": "^5.2.0"
+  }
+}
