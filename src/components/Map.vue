@@ -47,8 +47,27 @@ onMounted(() => {
   window.THREE = mapmost.THREE; //Three.js接口
   let Layer;
   map.on('load', function () {
+    let models_obj1 = ["factory1"].map(item => ({
+      type: 'glb',
+      url: "./assets/models/" + item + ".mm", // 模型路径:树、路、路灯
+      decryptWasm:'https://delivery.mapmost.com/cdn/b3dm_codec/0.0.2-alpha/sdk_b3dm_codec_wasm_bg_opt.wasm' //模型解密
+    }));
+
+    // 图层参数
+    let options1 = {
+      id: 'model_id1',
+      models: models_obj1,
+      outline: true, // 允许轮廓高亮
+      type: 'model',
+      center: [120.73014920373011, 31.287414975761724, 0.1],
+      callback: function (group, layer) {
+       
+      }
+    };
+    // 添加树、路、路灯模型
+    map.addLayer(options1);
     // 工厂模型路径
-    let models_obj = ["factory"].map(item => ({
+    let models_obj = ["factory2"].map(item => ({
       type: 'glb',
       url: "./assets/models/" + item + ".mm", // 模型路径
       decryptWasm:'https://delivery.mapmost.com/cdn/b3dm_codec/0.0.2-alpha/sdk_b3dm_codec_wasm_bg_opt.wasm' //模型解密
@@ -56,7 +75,7 @@ onMounted(() => {
 
     // 图层参数
     let options = {
-      id: 'model_id',
+      id: 'model_id124',
       models: models_obj,
       outline: true, // 允许轮廓高亮
       type: 'model',
@@ -87,7 +106,10 @@ onMounted(() => {
       }
     };
     // 添加工厂模型
-    map.addLayer(options);
+    map.addLayer(options,'model_id1');
+
+
+  
   })
   window.map = map;
 });

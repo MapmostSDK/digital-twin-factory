@@ -147,18 +147,22 @@ class InitApi {
 
     // 修改白模透明度和颜色
     modelMaterial() {
+        // debugger;
+        let _this = this;
+        let obj = _this._group.children[0].children[3]
         // // 白模材质设置
-        this._group.children[0].children[3].traverse(obj => {
-            if (obj instanceof window.THREE.Mesh) {
-                const str = obj.name;
-                if (str.indexOf("Mesh1_1_2") != -1) {
+        // _this._group.children[0].children[3].traverse(obj => {
+        //     debugger;
+        //     if (obj instanceof window.THREE.Mesh) {
+        //         const str = obj.name;
+                // if (str.indexOf("Mesh1_3") != -1) {
                     obj.material.transparent = true;
                     obj.material.depthTest = true;
                     obj.material.color.set('#99D9EA')
                     obj.material.opacity = 0.7
-                }
-            }
-        })
+                // }
+            // }
+        // })
     }
 
     // 工厂停车位车辆

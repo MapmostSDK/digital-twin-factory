@@ -128,7 +128,7 @@ class MapApi {
   // 人员定位
   workerLocation(coord, callback) {
     this.coord = coord;
-    this._group.children[0].children[3].traverse(obj => {
+    this._group.children[0].children[2].traverse(obj => {
       if (obj instanceof THREE.Mesh) {
         const str = obj.name;
         if (str.indexOf("Mesh1") == -1) {
@@ -178,7 +178,7 @@ class MapApi {
       })
       this.workerMarkers = [];
     }
-    this._group.children[0].children[3].traverse(obj => {
+    this._group.children[0].children[2].traverse(obj => {
       if (obj instanceof THREE.Mesh) {
         const str = obj.name;
         if (str.indexOf("Mesh1") == -1) {
@@ -498,14 +498,6 @@ class MapApi {
     if (this.workerLine) {
       this._layer.removeModel(this.workerLine);
       this.workerLine = null;
-      this._group.children[0].children[3].traverse(obj => {
-        if (obj instanceof THREE.Mesh) {
-          const str = obj.name;
-          if (str.indexOf("Mesh1") == -1) {
-            obj.material.opacity = 1.0
-          }
-        }
-      })
       this._group.children[0].children.forEach(item => {
         const strName = item.name;
         if (strName.indexOf("part") != -1 && strName.indexOf("part01") == -1) {
@@ -1063,7 +1055,9 @@ class MapApi {
 
   // 重点设备
   imporDevice() {
+  
     let that = this;
+  console.log("mxing:",this._group.children[0])
     let datas = [{
       id: 0,
       info: ["DBJ123-135", "338天", "2024-04-20", "张三", "12345678985"],
@@ -1074,19 +1068,19 @@ class MapApi {
       id: 1,
       info: ["DBJ123-136", "526天", "2023-01-25", "李伟", "13947702563"],
       element: this.createDeviceDom(),
-      object: [this._group.children[0].children[5]],
+      object: [this._group.children[0].children[4]],
       position: [120.72886649975871, 31.28870496465847, 10.435824397032203]
     }, {
       id: 2,
       info: ["DBJ123-137", "223天", "2024-01-20", "李四", "13399824112"],
       element: this.createDeviceDom(),
-      object: [this._group.children[0].children[7]],
+      object: [this._group.children[0].children[6]],
       position: [120.72980949403001, 31.288439683052893, 28.57758424870057]
     }, {
       id: 3,
       info: ["DBJ123-138", "4856天", "2020-05-12", "王五", "17826260023"],
       element: this.createDeviceDom(),
-      object: [this._group.children[0].children[6]],
+      object: [this._group.children[0].children[5]],
       position: [120.72980864558616, 31.288375987824637, 28.547436596912537]
     }]
     this.importantDevice = this._layer.addMarker({
