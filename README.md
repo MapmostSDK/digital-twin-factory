@@ -46,11 +46,12 @@
 
   #### 安装
 
+  - 以 VS Code 为例，打开工程文件夹，点击 终端（Terminal） -> 新建终端（New Terminal），并在终端中输入“npm install”命令后回车即可。
+  
   ```
   npm install
   ```
-
-  - 以 VS Code 为例，打开工程文件夹，点击 终端（Terminal） -> 新建终端（New Terminal），并在终端中输入“npm install”命令后回车即可。
+  
   <img src='./public/assets/images/vs01.png'>
 
   #### 修改授权码
