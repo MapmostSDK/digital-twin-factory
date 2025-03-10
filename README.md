@@ -42,7 +42,7 @@
 
 > 运行前请确保已经安装以下环境
 
-- node.js (http://www.nodejs.com.cn/)
+- [node.js](http://www.nodejs.com.cn/)
 
   #### 安装
 
@@ -86,6 +86,31 @@
   - 运行命令：
   ```
   npm run dev
+  ```
+
+  #### 替换模型
+  如果你想要替换成自己模型看一下效果，可以修改 Map.vue 中关于模型加载的方法，以加载工厂的树、路、路灯模型的方法为例：
+  ```js
+  // 模型资源
+  let models_factory1 = [
+    {
+      type: 'glb',   // 替换为你模型的格式，支持glb/gltf/fbx/obj
+      url: './assets/models/factory1.mm', // 模型文件路径，代码中以mm为后缀的模型文件是基于glb模型的Mapmost加密文件，需与decryptWasm参数配套使用
+      decryptWasm:'https://delivery.mapmost.com/cdn/b3dm_codec/0.0.2-alpha/sdk_b3dm_codec_wasm_bg_opt.wasm', // Mapmost加密模型的配置参数，非Mapmost加密模型加载无需设置该参数
+      // mtl:'<your mtl url>' // 如果模型是obj格式的，需要增加该参数，将值替换为你模型材质的文件路径
+      // dracoUrl:'https://delivery.mapmost.com/cdn/sdk/lib/draco/' // 如果模型是glb/gltf格式的，又经过几何压缩的，需要添加该参数进行解压
+      // ktx2ParseUrl:'https://delivery.mapmost.com/cdn/sdk/lib/basis/' // 如果模型是glb/gltf格式的，又经过ktx2纹理压缩的，需要添加该参数进行解压
+    },
+  ];
+
+  // 将模型添加到场景中
+  map.addLayer({
+    id: 'model_id_1', // 设置模型id
+    models: models_factory1, // 上述设置的模型资源
+    outline: true, // 是否允许轮廓高亮
+    type: 'model', // 图层类型
+    center: [120.73014920373011, 31.287414975761724, 0.1], // 如果你的模型有中心点坐标，则替换，如果没有，可以不变
+  });
   ```
 
   #### 打包
@@ -136,26 +161,22 @@
 
 ### 核心依赖
 
-- Mapmost SDK for WebGL [https://www.mapmost.com/mapmost_docs/webgl/latest/](https://www.mapmost.com/mapmost_docs/webgl/latest/?source_inviter=nqLdqFJp)
+[Mapmost SDK for WebGL](https://www.mapmost.com/mapmost_docs/webgl/latest/docs/intro?source_inviter=nqLdqFJp)
 
 ### 核心能力
 Mapmost SDK for WebGL 提供数据、服务、可视化、分析等7大类能力，该案例主要涉及以下功能：
-- 1、模型加载
-- 2、视角切换
-- 3、三维标签
-- 4、模型高亮
-- 5、火焰效果
-- 6、地理围栏
-- 7、三维特效圆
-- 8、三维特效线
-- 9、三维热力图
-- 10、后期泛光效果
-- 11、实时视频文件接入
+- 模型加载
+- 视角切换
+- 三维标签
+- 模型高亮
+- 火焰效果
+- 地理围栏
+- 三维特效圆
+- 三维特效线
+- 三维热力图
+- 后期泛光效果
+- 实时视频文件接入
 
 ### 更多参考
 
-Mapmost [https://www.mapmost.com/#/](https://www.mapmost.com/#/?source_inviter=nqLdqFJp).
-
-
-
-
+[Mapmost官网](https://www.mapmost.com/#/?source_inviter=nqLdqFJp)
